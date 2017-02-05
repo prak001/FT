@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "600128073202",
+    "firebase_url": "https://fliptee-a2477.firebaseio.com",
+    "project_id": "fliptee-a2477",
+    "storage_bucket": "fliptee-a2477.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600128073202:android:b5b8a17f03c6050f",
+        "android_client_info": {
+          "package_name": "com.example.welcome.fliptee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600128073202-umajmtl7bpu4hnrn4hdht5o7n69d1bkk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAq7DTusvGc1n5GUGLSBI_cdjOIaolAHmE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
