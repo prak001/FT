@@ -89,6 +89,7 @@ public class frag3_designs extends android.support.v4.app.Fragment {
                         save.setImageResource(R.mipmap.favourite_heart);
                     }
                 }.start();
+                Toast.makeText(getActivity(),"Image saved for Checkout",Toast.LENGTH_LONG).show();
                 int width=display.getWidth();
                 int height=display.getHeight();
 
@@ -109,24 +110,10 @@ public class frag3_designs extends android.support.v4.app.Fragment {
                     increase=increase+1;
                     Log.i("QQQQWWWW"," "+increase);
                 }
-                //get text
-                /*TextView tv=(TextView)getActivity().findViewById(R.id.clipartTry);
-                String tvString=tv.getText().toString();
-                if(tvString.isEmpty()!=true) {
-                    increase=increase+1;
-                    Log.i("QQQWWW"," "+increase);
-                }*/
                 FrameLayout canvas=(FrameLayout)getActivity().findViewById(R.id.canvasView);
                 int tot_inFrame=canvas.getChildCount();
                 Log.i("wsawsawsa",""+tot_inFrame);
                 increase=increase+tot_inFrame;
-                //get design
-                /*ImageView iv=(ImageView)getActivity().findViewById(R.id.image_from_grid);  ******************
-                if(iv.getDrawable()!=null) {
-                    increase=increase+1;
-                    Log.i("QQWW"," "+increase);
-                }*/
-                //Log.i("INININ"," "+increase);
                 String increaseString=increase.toString();
                 SQLiteDatabase db=getActivity().openOrCreateDatabase("imageDB", Context.MODE_PRIVATE,null);
                 //db.execSQL("DROP TABLE IF EXISTS imageTable");

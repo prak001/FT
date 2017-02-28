@@ -18,6 +18,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -92,6 +94,7 @@ public class Login_google_Activity extends AppCompatActivity implements View.OnC
         if(requestCode==RC_SIGN_IN)
         {
             GoogleSignInResult result=Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            Log.i("gmailghgh",result.toString());
             handleSignResult(result);
         }
 
@@ -99,20 +102,15 @@ public class Login_google_Activity extends AppCompatActivity implements View.OnC
     private void handleSignResult(GoogleSignInResult result)
     {
         //I WILL DO CHANGES HERE IN IF STATEMENT
+
         if (result.isSuccess())
         {
             GoogleSignInAccount acc=result.getSignInAccount();
-            //nametextView.setText(acc.getDisplayName());
-            //emailTextView.setText(acc.getEmail());
-            //Toast.makeText(this,"passed",Toast.LENGTH_LONG).show();
-            //Intent i=new Intent(Login_google_Activity.this,designer_customer_Activity.class);
-            //startActivity(i);
+
             email = acc.getEmail();
             name = acc.getDisplayName();
+            Log.i("gmailklkl",name);
             Toast.makeText(Login_google_Activity.this,email,Toast.LENGTH_LONG).show();
-            /*CreateUser createUser = new CreateUser(getApplicationContext());
-            createUser.delegate=this;
-            createUser.execute(email,name);*/
             func();
             //nametextView.setText(acc.getDisplayName());
             //emailTextView.setText(acc.getEmail());
@@ -148,6 +146,18 @@ public class Login_google_Activity extends AppCompatActivity implements View.OnC
         CreateUser createUser = new CreateUser(getApplicationContext());
         createUser.delegate=this;
         createUser.execute(email,name);
+    }
+    public void signOut() {
+        Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(
+                new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                        Log.i("qwasqwas",status.toString());
+                        //updateUI(false);
+                        //Intent i=new Intent(this,Login_google_Activity.class);
+
+                    }
+                });
     }
 }
 class CreateUser extends AsyncTask<String,String,JSONObject>

@@ -62,7 +62,7 @@ public class ordersActivity extends AppCompatActivity {
         @Override
         public int getItemCount() {
 
-            int num=10;
+            int num=1;
             return num;
         }
     }

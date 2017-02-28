@@ -36,6 +36,11 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.rtugeek.android.colorseekbar.ColorSeekBar;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
@@ -65,6 +70,7 @@ public class customerActivity extends AppCompatActivity implements TaskDelegate,
     private TextView textView;//
     SharedPreferences pref;
     SharedPreferences.Editor editor;
+    GoogleApiClient mGoogleApiClient;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     // private Toolbar mToolbar;
@@ -116,8 +122,7 @@ public class customerActivity extends AppCompatActivity implements TaskDelegate,
         //db.execSQL("DROP TABLE IF EXISTS imageTable");
         // mDrawerLayout.addDrawerListener(mToggle);
 
-
-
+        //Toast.makeText(customerActivity.this,"uhuhuhuh",Toast.LENGTH_LONG).show();
 
 
 
@@ -231,12 +236,12 @@ reflect();
     public boolean onNavigationItemSelected(MenuItem item)
     {
         int id =item.getItemId();
-        if (id == R.id.nav_account) {
+        /*if (id == R.id.nav_account) {
 
-            //Intent intent = new Intent(this, com.example.welcome.fliptee.sett.class);
-            //startActivity(intent);
+            Intent intent = new Intent(this, com.example.welcome.fliptee.sett.class);
+            startActivity(intent);
             return true;
-        }
+        }*/
         if(id ==R.id.id_checkOut)
         {
             Log.i("mnmnmn","mnmnmn");
@@ -248,12 +253,37 @@ reflect();
         {
             Intent i=new Intent(customerActivity.this,designerActivity.class);
             startActivity(i);
+
             return  true;
         }
-        if(id==R.id.orders) {
+        /*if(id==R.id.orders) {
             Intent i=new Intent(customerActivity.this,ordersActivity.class);
             startActivity(i);
             return  true;
+        }*/
+        if(id==R.id.nav_logout)
+        {
+            //Login_google_Activity login_google_activity=new Login_google_Activity();
+            //login_google_activity.signOut();
+            //break;
+            Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+                    new ResultCallback<Status>() {
+                        @Override
+                        public void onResult(Status status) {
+                            // ...
+                            Toast.makeText(getApplicationContext(),"Logged Out",Toast.LENGTH_SHORT).show();
+                            SharedPreferences shap=getSharedPreferences("LOGIN_GOOGLE",MODE_PRIVATE);
+                            SharedPreferences.Editor editor=shap.edit();
+                            editor.putInt("login",50);
+                            editor.commit();
+                            pref = getSharedPreferences("FLIP",0);
+                            editor = pref.edit();
+                            Intent i=new Intent(getApplicationContext(),MainActivity.class);
+                            startActivity(i);
+                        }
+                    });
+
+            return true;
         }
 
         else{
@@ -641,5 +671,17 @@ void reflect1()
             }
             super.onPostExecute(s);
         }
+    }
+
+    @Override
+    protected void onStart() {
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+        mGoogleApiClient.connect();
+        super.onStart();
     }
 }

@@ -18,12 +18,12 @@ public class sett extends AppCompatActivity {
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("LOGIN_GOOGLE",0);
         String email = sharedPreferences.getString("email","");
         String name=sharedPreferences.getString("name","");
-        TextView nameText=(TextView)findViewById(R.id.name_id);
-        TextView emailText=(TextView)findViewById(R.id.email_id);
-        TextView creditText=(TextView)findViewById(R.id.credits_id);
-        nameText.setText(name);
-        emailText.setText(email);
-        creditText.setText("0");
+        //TextView nameText=(TextView)findViewById(R.id.name_id);
+        //TextView emailText=(TextView)findViewById(R.id.email_id);
+        //TextView creditText=(TextView)findViewById(R.id.credits_id);
+        //nameText.setText(name);
+        //emailText.setText(email);
+        //creditText.setText("0");
 
     }
 }

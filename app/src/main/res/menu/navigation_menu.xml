@@ -4,7 +4,7 @@
     <group android:id="@+id/gp">
     <item android:id="@+id/nav_account"
       android:icon="@mipmap/ic_person_black_24dp"
-      android:title="My Account"
+      android:title="My Account(not working)"
       android:orderInCategory="100"/>
     <item android:id="@+id/id_checkOut"
           android:title="Checkout"
@@ -12,20 +12,20 @@
           android:orderInCategory="100"/>
     <item android:id="@+id/nav_settings"
           android:icon="@mipmap/ic_settings_black_24dp"
-          android:title="Settings"
+          android:title="Setting"
           android:orderInCategory="100"
         />
 
-<item android:id="@+id/orders"
+<!--<item android:id="@+id/orders"
       android:icon="@mipmap/ic_grade_black_24dp"
-      android:title="My Orders"/>
+      android:title="My Orders\n (not working)"/>-->
 
 <item android:id="@+id/design"
      android:icon="@mipmap/ic_print_black_24dp"
     android:title="Design Shirt" />
     <item android:id="@+id/nav_logout"
           android:icon="@mipmap/ic_donut_large_black_24dp"
-          android:title="Logout"
+          android:title="Logout "
           android:orderInCategory="100"/>
    </group>
 

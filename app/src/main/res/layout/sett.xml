@@ -8,12 +8,12 @@
     android:background="#FF9800">
 
  <LinearLayout
-     android:layout_width="77dp"
+     android:layout_width="match_parent"
      android:layout_height="139dp"
       android:orientation="horizontal">
      <ImageView
-         android:layout_width="75dp"
-         android:layout_height="71dp"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
          android:layout_gravity="center_vertical"
          android:src="@drawable/man_navigation"
          android:id="@+id/imageView"
@@ -30,13 +30,12 @@
 
         >
 
-        <TextView
+        <!--<TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Name"
-            android:id="@+id/name_id"
-            android:textColor="#000000" />
+            android:id="@+id/name_id" />
         <TextView
             android:layout_width="match_parent"
             android:layout_weight="1"
@@ -48,7 +47,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Credits"
-            android:id="@+id/credits_id" />
+            android:id="@+id/credits_id" />-->
     </LinearLayout>
 
 </LinearLayout>
